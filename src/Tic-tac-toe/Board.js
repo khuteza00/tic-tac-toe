@@ -55,15 +55,15 @@ const Board = () => {
     <div className="board-container">
       {is ? (
         <>
-          <h2 className="winner-message">{isWinner} won the game!</h2>
-          <button className="reset-button" onClick={handleReset}>
+            <h2 className="winner-message" style={{color:"green"}}>Player {isWinner} won the game!</h2>
+            <button className="reset-button" onClick={handleReset}>
             Play Again
           </button>
         </>
       ) : (
         <>
           {isWinner ? (
-            <h2 className="winner-message">{isWinner} won the game!</h2>
+            <h2 className="winner-message" style={{color:"green"}}>Player {isWinner} won the game!</h2>
           ) : (
             <h2 className="player-turn">
               Player {isXturn ? "X" : "O"} please move
