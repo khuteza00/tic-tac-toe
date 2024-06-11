@@ -7,6 +7,9 @@ const Board = () => {
   const [isXturn, setIsXTurn] = useState(true);
   const [is, setIs] = useState(false);
 
+  const clickSound = new Audio('/mixkit-arcade-game-jump-coin-216.wav');
+  const winnerSound = new Audio('/mixkit-video-game-win-2016.wav');
+
   const checkWinner = () => {
     const winnerLogic = [
       [0, 1, 2],
@@ -30,18 +33,17 @@ const Board = () => {
   const isWinner = checkWinner();
 
   const handleClick = (i) => {
-    console.log(isWinner);
     if (!isWinner) {
-        // sound
       if (state[i] !== null) {
         return;
       }
+      clickSound.play();
       const copyState = [...state];
       copyState[i] = isXturn ? "X" : "O";
       setState(copyState);
       setIsXTurn(!isXturn);
     } else {
-        // winner sound
+      winnerSound.play();
       setIs(true);
     }
   };
@@ -55,15 +57,19 @@ const Board = () => {
     <div className="board-container">
       {is ? (
         <>
-            <h2 className="winner-message" style={{color:"green"}}>Player {isWinner} won the game!</h2>
-            <button className="reset-button" onClick={handleReset}>
+          <h2 className="winner-message" style={{ color: "green" }}>
+            Player {isWinner} won the game!
+          </h2>
+          <button className="reset-button" onClick={handleReset}>
             Play Again
           </button>
         </>
       ) : (
         <>
           {isWinner ? (
-            <h2 className="winner-message" style={{color:"green"}}>Player {isWinner} won the game!</h2>
+            <h2 className="winner-message" style={{ color: "green" }}>
+              Player {isWinner} won the game!
+            </h2>
           ) : (
             <h2 className="player-turn">
               Player {isXturn ? "X" : "O"} please move
