@@ -1,4 +1,26 @@
-/* App.css */
+.start-screen {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: 100vh;
+}
+
+.logo {
+  height: 170px;
+  width: 190px;
+  margin-bottom: 60px;
+}
+
+.start-button {
+  padding: 10px 20px;
+  width: 200px;
+  font-size: 25px;
+  cursor: pointer;
+  border-radius: 20px;
+  border: none;
+}
+
 body {
   background-color: #066b63;
   margin: 0;
@@ -38,7 +60,7 @@ body {
   display: flex;
   align-items: center;
   justify-content: center;
-  border: 2px solid #000;
+  border: 2px solid yellow;
   background-color: yellow;
   cursor: pointer;
   margin: 5px;
